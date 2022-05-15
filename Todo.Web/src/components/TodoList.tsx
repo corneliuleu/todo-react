@@ -1,9 +1,11 @@
 import React from 'react';
-import { TodoModel, RootState, ToDoStatus } from "../state/types";
+import { TodoModel, ToDoStatus } from "../state/types";
 import TodoItem from './TodoItem';
 import TodoItemNew from './TodoItemNew';
 import { connect } from "react-redux";
 import { actionTodo, actionSaveNewTodoItem, actionCancelNewTodoItem } from "../state/actions";
+import { RootState } from '../state/store';
+import { actionTodoApi, saveTodoApi } from '../state/reducers';
 
 const TodoList = ({ todos, onTodoClick, onSaveClick, onCancelClick }: {
   todos: TodoModel[],
@@ -48,7 +50,7 @@ export default connect((state: RootState) => {
   };
 }, 
 {
-  onTodoClick: actionTodo,
-  onSaveClick: actionSaveNewTodoItem,
+  onTodoClick: actionTodoApi,
+  onSaveClick: saveTodoApi,
   onCancelClick: actionCancelNewTodoItem,
 })(TodoList);

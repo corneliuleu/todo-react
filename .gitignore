@@ -10,3 +10,6 @@ build/
 .env.production.local
 
 npm-debug.log*
+*.user
+*.suo
+.vs/

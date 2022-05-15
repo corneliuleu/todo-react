@@ -1,11 +1,12 @@
 import { AnyAction } from "@reduxjs/toolkit";
+import { TodoModel, ToDoStatus } from "./types";
 
 export enum ActionType {
     ADD_TODO_ITEM = "ADD_TODO_ITEM",
     SAVE_NEW_TODO_ITEM = "SAVE_NEW_TODO_ITEM",
     CANCEL_NEW_TODO_ITEM = "CANCEL_NEW_TODO_ITEM",
     ACTION_TODO = "ACTION_TODO",
-    LOAD_DATA = "LOAD_DATA"
+    FETCH_DATA = "FETCH_DATA"
 };
 
 export const actionAddTodoItem = () : AnyAction => ({
@@ -23,11 +24,13 @@ export const actionCancelNewTodoItem = (id: string) : AnyAction => ({
     id
 });
 
-export const actionTodo = (id: string) : AnyAction => ({
+export const actionTodo = (id: string, status: ToDoStatus) : AnyAction => ({
     type: ActionType.ACTION_TODO,
-    id
+    id,
+    status
 });
 
-export const actionLoadData = () : AnyAction => ({
-    type: ActionType.LOAD_DATA
+export const actionFetchData = (data: TodoModel[]) : AnyAction => ({
+    type: ActionType.FETCH_DATA,
+    data
 });

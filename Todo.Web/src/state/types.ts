@@ -1,5 +1,3 @@
-import rootReducer from "./rootReducer";
-
 export interface TodoModel 
 {
     id: string,
@@ -13,5 +11,3 @@ export enum ToDoStatus
     PENDING = 1,
     COMPLETED = 2
 }
-
-export type RootState = ReturnType<typeof rootReducer>;
