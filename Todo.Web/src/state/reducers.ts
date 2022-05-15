@@ -2,6 +2,7 @@ import axios from "axios";
 import { AnyAction } from "redux";
 import { actionSaveNewTodoItem, actionTodo, ActionType } from "./actions";
 import { TodoModel, ToDoStatus } from "./types";
+import configData from "../../config.json";
 
 const initialState: TodoModel[] = [];
 
@@ -58,7 +59,7 @@ const todoItems = (
 export default todoItems;
 
 // TODO: Move to config file
-const baseUrl = "https://localhost:7232/api/todoitems";
+const baseUrl = configData.WEB_API_BASE_URL;
 
 
 // TODO: change function signature
